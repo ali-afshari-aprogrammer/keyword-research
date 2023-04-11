@@ -33,7 +33,10 @@ class GoogLe:
         return question_results
 
 
+# here you should give an address for save an excel file
 desktop_path = 'C:\\Users\\Ali\\Desktop\\keyboard_research_project'
+
+# here you can change the excel file name
 file_name = 'google.xlsx'
 
 # Check if the file has already been created
@@ -47,21 +50,25 @@ except:
 
 input_world = input(
     "Enter a comma separated list of keywords and phrases (or type 'exit' to quit) Keyword Shitter2 : ")
-input_world2 = [x.strip() for x in input_world.split("،")]
-persian_letters = ['ا', 'ب', 'پ', 'ت', 'ث', 'ج', 'چ', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'ژ',
-                   'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ک', 'گ', 'ل', 'م', 'ن', 'و', 'ه', 'ی',
-                   'چطور', 'چگونه', 'آیا', 'کجا', 'کدام', 'چرا', 'چه کسی', 'چه زمانی', 'هستند', 'چه']
+input_world2 = [x.strip() for x in input_world.split(",")]
+english_letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+                   't', 'u', 'v', 'w', 'x', 'y', 'z','how to', 'what is', 'where is', 'why do', 'how can', 'when does', 'who is', 'which one', 'are there',
+                 'what are', 'can you', 'should i', 'is it', 'does the', 'will they', 'how much', 'what time',
+                 'what kind', 'how long', 'what happens', 'how do', 'could you', 'do they', 'what should', 'is there',
+                 'what do', 'can i', 'would it', 'what will', 'whose', 'do i', 'am i', 'how many', 'where to', 'when is',
+                 'how often', 'what does', 'could i', 'can we', 'who was', 'would you', 'do you', 'what can', 'who has',
+                 'what if', 'have i', 'is there a']
 
 words_list = []
 
 # The first loop
-for letter in persian_letters:
+for letter in english_letters:
     for word in input_world2:
         new_word = letter + " " + word
         words_list.append(new_word)
 
 # The second loop
-for letter in persian_letters:
+for letter in english_letters:
     for word in input_world2:
         new_word = word + " " + letter
         words_list.append(new_word)
@@ -121,8 +128,8 @@ while True:
         break
 
     # Separate words and phrases using commas
-    user_inputs = [x.strip() for x in input_list.split("،")]
-
+    user_inputs = [x.strip() for x in input_list.split(",")]
+    
     for user_input in user_inputs:
         print(f"\033[32msearching in GoogLe '{user_input}'\033[0m")
         q_obj = GoogLe()
@@ -146,3 +153,4 @@ while True:
 
     # Save the DataFrame in an Excel file
     suggestions_df.to_excel(f"{desktop_path}/{file_name}", index=False)
+
