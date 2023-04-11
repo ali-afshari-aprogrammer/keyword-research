@@ -32,7 +32,6 @@ class GoogLe:
             question_results.append(question)
         return question_results
 
-
 # here you should give an address for save an excel file
 desktop_path = 'C:\\Users\\Ali\\Desktop\\keyboard_research_project'
 
