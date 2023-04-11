@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# %%
-
 
 import requests
 from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
@@ -56,25 +54,25 @@ persian_letters = ['ا', 'ب', 'پ', 'ت', 'ث', 'ج', 'چ', 'ح', 'خ', 'د', '
 
 words_list = []
 
-# حلقه اول
+# The first loop
 for letter in persian_letters:
     for word in input_world2:
         new_word = letter + " " + word
         words_list.append(new_word)
 
-# حلقه دوم
+# The second loop
 for letter in persian_letters:
     for word in input_world2:
         new_word = word + " " + letter
         words_list.append(new_word)
 
-# حذف تکراری‌ها
+# Remove duplicates
 words_list = list(set(words_list))
 
-# تعریف دیتافریم
+# Dataframe definition
 suggestions_df = pd.DataFrame(columns=['google suggestions', 'phrase'])
 
-# هر کلمه 42 تا count میخواد
+# Each word requires 42 counts
 count = 0
 count_number = len(input_world2)
 number_n = 42
@@ -105,7 +103,7 @@ while True:
     if count == final_count:
         break
 
-# ذخیره کردن دیتافریم در فایل اکسل
+# Save data frame in excel file
 
 suggestions_df.to_excel('suggestions.xlsx', index=False)
 
